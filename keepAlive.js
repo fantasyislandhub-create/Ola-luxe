@@ -27,9 +27,8 @@ function keepAlive() {
   req.end();
 }
 
-// Ping every 10 minutes (600 seconds) to prevent sleep
-// 10 minutes is safer than 14 for Render's 15-minute timeout
-const INTERVAL = 10 * 60 * 1000;
+// Ping every 14 minutes to prevent sleep (Render spins down after 15 min)
+const INTERVAL = 14 * 60 * 1000;
 
 // Initial ping on startup
 keepAlive();

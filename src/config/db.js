@@ -18,9 +18,9 @@ const connectDB = async () => {
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
         });
-        console.log('MongoDB connected successfully');
+        if (process.env.NODE_ENV !== 'production') console.log('MongoDB connected');
     } catch (err) {
-        console.error('MongoDB connection error:', err.message);
+        console.error('DB connection failed');
         process.exit(1);
     }
 };
